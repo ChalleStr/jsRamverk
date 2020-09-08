@@ -1,0 +1,29 @@
+
+.container {
+    padding-top: 15px;
+}
+
+.img-me {
+    float: right;
+    width: 300px;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #307480;
+
+}
+
+.navbar-link .navbar-nav .nav-link {
+    color: white;
+}
+
+.me-div {
+    //width: 500px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+
+
+@import "~bootstrap/scss/bootstrap";
