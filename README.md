@@ -1,8 +1,22 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation instructions
+
+Clone the repository from Github:
+
+### `git clone -b 1.0.1 https://github.com/ChalleStr/jsRamverk`
+
+
+
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory,
+
+Install dependencies:
+
+### `npm install`
+
+Run:
 
 ### `npm start`
 
