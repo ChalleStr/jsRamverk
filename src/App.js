@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 
 import Me from './Me.js';
 import Report from './Report.js';
+import RegisterForm from './Register.js';
 //import './App.css';
 //import './App.scss';
 
@@ -18,11 +19,14 @@ const App = () => (
                 <Nav.Link className="navbar-link" href="/">Hem</Nav.Link>
                 <Nav.Link href="/">Me</Nav.Link>
                 <Nav.Link href="reports/week/1">Reports</Nav.Link>
+                <Nav.Link href="register">Register</Nav.Link>
             </Nav>
         </Navbar>
 
     <Route exact path="/" component={Me} />
     <Route path="/reports/week/1" component={Report} />
+    <Route path="/reports/week/2" component={Report} />
+    <Route path="/register" component={RegisterForm} />
     </Router>
         // return (<main>
         //         <div>{Me()}</div>

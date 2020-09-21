@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import picture from './charlottestrand.jpg';
 
-console.log(picture);
+//console.log(picture);
 
+//Test med API
 const Me = () => {
+    const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        fetch("http://localhost:1337/")
+        .then(res => res.json())
+        .then(res => setMessage(res.about));
+    });
 
     return (
         <main>
@@ -11,13 +19,11 @@ const Me = () => {
                 <img className="img-me" src={picture} alt="Charlotte"/>
                 <div className="me-div">
                     <h1>Om mig</h1>
-                        <p>Jag heter Charlotte Strand och bor i byn Sibbarp utanför Tvååker i Varbergs kommun.</p>
-                        <p>Min familj består av man, tre barn och en katt. Det blir inte så mycket tid över till annat än skola och familj men hästar och musik har alltid stått högst på listan.</p>
-                        <p>Nu står jag precis i början av andra läsaåret på BTH:s webbprogrammerarprogram på distans och hoppas på att hålla mig i fas det här året!</p>
+                        <p>{message}</p>
                 </div>
             </div>
         </main>
-        );
+    );
 };
 
 export default Me;

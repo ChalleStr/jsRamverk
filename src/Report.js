@@ -1,7 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { BrowserRouter as Link, Route } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown/with-html';
 import ReactDOM from 'react-dom';
+
+// const Report = ({ match }) => {
+//     const kmom = match.params.kmom;
+//     const [text, setText] = useState("");
+//
+//     useEffect(() => {
+//         fetch(`http://localhost:1337/reports/week/${kmom}`)
+//         .then(res => res.json())
+//         .then(res => setText(res.data));
+//     });
+//
+//     const ShowReport = () =>
+//
+// }
 
 const readMe = `
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
