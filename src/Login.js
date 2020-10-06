@@ -1,24 +1,23 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
-import Form from "react-bootstrap/Form";
-//import { useInput } from "./hooks/input-hook";
+import Form from "react-bootstrap/Form"
+import { token } from "./Token.js";
 
-class RegisterForm extends React.Component {
+class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: "",
-            password: ""
-        }
+            password: "",
+        };
+
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(event) {
-        const target = event.target;
-        var value = target.value;
-        const name = target.name;
+        const { value, name } = event.target;
 
         this.setState({[name]: value});
     }
@@ -29,8 +28,7 @@ class RegisterForm extends React.Component {
         console.log(this.state.email);
         console.log(this.state.password);
 
-
-        fetch("http://localhost:1337/register/", {
+        fetch("http://localhost:1337/login/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,8 +39,17 @@ class RegisterForm extends React.Component {
                 password: this.state.password
             })
         })
-        .then(res => res.json())
-        .then(data => this.setState)
+        .then(response => response.json())
+        .then(res => {
+            console.log(res.data.token);
+            token.token = res.data.token;
+            this.props.history.push('/reports/add');
+        })
+        .catch((err) => {
+            console.error(err);
+            console.log("Error logging in.");
+        })
+
     }
 
     render() {
@@ -50,7 +57,7 @@ class RegisterForm extends React.Component {
                 <main>
                     <div className="container">
                         <div className="me-div">
-                            <h3>Register new user</h3>
+                            <h3>Admin login</h3>
                             <Form onSubmit={this.handleSubmit}>
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Label>E-mail:</Form.Label>
@@ -60,7 +67,7 @@ class RegisterForm extends React.Component {
                                     <Form.Label>Password:</Form.Label>
                                     <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} required />
                                 </Form.Group>
-                                <Button variant="primary" type="submit">Register</Button>
+                                <Button variant="primary" type="submit">Login</Button>
                             </Form>
                         </div>
                     </div>
@@ -69,27 +76,27 @@ class RegisterForm extends React.Component {
     }
 
     // render() {
-    // return (
-    //         <main>
-    //             <div className="container">
-    //                 <div className="me-div">
-    //                     <h3>Registrera ny användare</h3>
-    //                     <form onSubmit={this.handleSubmit}>
-    //                         <label>
-    //                             E-mail:
-    //                             <input type="email" name="email" onChange={this.handleInputChange} />
-    //                         </label>
-    //                         <label>
-    //                             Password:
-    //                             <input type="password" name="password" onChange={this.handleInputChange} />
-    //                         </label>
-    //                         <input type="submit" value="Submit" />
-    //                     </form>
+    //     return (
+    //             <main>
+    //                 <div className="container">
+    //                     <div className="me-div">
+    //                         <h3>Logga in</h3>
+    //                         <form onSubmit={this.handleSubmit}>
+    //                             <label>
+    //                                 E-mail:
+    //                                 <input type="email" name="email" value={this.state.email} onChange={this.handleInputChange} required />
+    //                             </label>
+    //                             <label>
+    //                                 Password:
+    //                                 <input type="password" name="password" value={this.state.password} onChange={this.handleInputChange} required />
+    //                             </label>
+    //                             <input type="submit" value="Submit" />
+    //                         </form>
+    //                     </div>
     //                 </div>
-    //             </div>
-    //         </main>
-    //     );
+    //             </main>
+    //         );
     // }
 }
 
-export default RegisterForm;
+export default LoginForm;

@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import picture from './charlottestrand.jpg';
 
-//console.log(picture);
-
-//Test med API
 const Me = () => {
     const [message, setMessage] = useState("");
 
