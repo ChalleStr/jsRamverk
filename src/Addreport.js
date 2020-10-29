@@ -32,6 +32,7 @@ class AddReport extends React.Component {
         console.log(this.state);
         console.log(token.token);
 
+        //fetch("https://me-api.charlottestrand.me/reports/add", {
         fetch("http://localhost:1337/reports/add", {
             method: "POST",
             headers: {

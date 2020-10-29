@@ -30,6 +30,7 @@ class RegisterForm extends React.Component {
         console.log(this.state.password);
 
 
+        //fetch("https://me-api.charlottestrand.me/register/", {
         fetch("http://localhost:1337/register/", {
             method: "POST",
             headers: {
@@ -68,28 +69,6 @@ class RegisterForm extends React.Component {
             );
     }
 
-    // render() {
-    // return (
-    //         <main>
-    //             <div className="container">
-    //                 <div className="me-div">
-    //                     <h3>Registrera ny användare</h3>
-    //                     <form onSubmit={this.handleSubmit}>
-    //                         <label>
-    //                             E-mail:
-    //                             <input type="email" name="email" onChange={this.handleInputChange} />
-    //                         </label>
-    //                         <label>
-    //                             Password:
-    //                             <input type="password" name="password" onChange={this.handleInputChange} />
-    //                         </label>
-    //                         <input type="submit" value="Submit" />
-    //                     </form>
-    //                 </div>
-    //             </div>
-    //         </main>
-    //     );
-    // }
 }
 
 export default RegisterForm;

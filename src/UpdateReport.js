@@ -36,6 +36,7 @@ class UpdateReport extends React.Component {
         console.log(this.state);
         console.log(token.token);
 
+        //fetch("https://me-api.charlottestrand.me/reports/update", {
         fetch("http://localhost:1337/reports/update", {
             method: "PUT",
             headers: {

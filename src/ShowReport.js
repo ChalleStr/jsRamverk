@@ -8,10 +8,11 @@ const ShowReport = ({ match }) => {
     const [text, setText] = useState("");
 
     useEffect(() => {
+        //fetch(`https://me-api.charlottestrand.me/reports/week/${kmom}`)
         fetch(`http://localhost:1337/reports/week/${kmom}`)
             .then(res => res.json())
             .then(res => {
-                console.log(res.data.kmom_text);
+                //console.log(res.data.kmom_text);
                 setText(res.data.kmom_text)
             });
     });

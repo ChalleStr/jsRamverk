@@ -22,30 +22,32 @@ class Reports extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state.kmom)
+        //console.log(this.state.kmom)
+
+        this.props.history.push('/reports/week/' + this.state.kmom);
+    }
 
 
-        fetch("http://localhost:1337/reports", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-            },
-            body: JSON.stringify({
-                kmom: this.state.kmom,
-            })
-        })
-        .then(res => {
-
-            this.props.history.push('/reports/week/' + this.state.kmom);
-        })
-        .catch((err) => {
-            console.error(err);
-            console.log("Error getting report.");
-        })
-
-    }// import React, { useEffect, useState } from 'react';
-// import ReactMarkdown from 'react-markdown/with-html';
+    //     fetch("https://me-api.charlottestrand/reports", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Access-Control-Allow-Origin": "*"
+    //         },
+    //         body: JSON.stringify({
+    //             kmom: this.state.kmom,
+    //         })
+    //     })
+    //     .then(res => {
+    //
+    //         this.props.history.push('/reports/week/' + this.state.kmom);
+    //     })
+    //     .catch((err) => {
+    //         console.error(err);
+    //         console.log("Error getting report.");
+    //     })
+    //
+    // }
 
 
 // const Reports = ({ match }) => {
