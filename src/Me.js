@@ -5,8 +5,8 @@ const Me = () => {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
-        //fetch("https://me-api.charlottestrand.me/")
-        fetch("http://localhost:1337/")
+        fetch("https://me-api.charlottestrand.me/")
+        //fetch("http://localhost:1337/")
         .then(res => res.json())
         .then(res => setMessage(res.about));
     });

@@ -30,8 +30,8 @@ class RegisterForm extends React.Component {
         console.log(this.state.password);
 
 
-        //fetch("https://me-api.charlottestrand.me/register/", {
-        fetch("http://localhost:1337/register/", {
+        fetch("https://me-api.charlottestrand.me/register/", {
+        //fetch("http://localhost:1337/register/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

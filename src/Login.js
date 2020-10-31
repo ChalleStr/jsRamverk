@@ -28,8 +28,8 @@ class LoginForm extends React.Component {
         console.log(this.state.email);
         console.log(this.state.password);
 
-        //fetch("https://me-api.charlottestrand.me/login/", {
-        fetch("http://localhost:1337/login/", {
+        fetch("https://me-api.charlottestrand.me/login/", {
+        //fetch("http://localhost:1337/login/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
