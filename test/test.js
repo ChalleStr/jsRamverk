@@ -37,7 +37,7 @@ test.describe("Me-page", function() {
             .forBrowser("firefox")
             .build();
 
-        browser.get("http://localhost:3000/#!/");
+        browser.get("https://charlottestrand.me/");
         done();
     });
 
@@ -70,7 +70,7 @@ test.describe("Me-page", function() {
         // });
 
         assertH3("Om mig");
-        matchUrl("#!/");
+        matchUrl("/");
 
 
         // browser.getCurrentUrl().then((url) => {
