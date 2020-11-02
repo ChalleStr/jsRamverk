@@ -43,7 +43,7 @@ test.describe("Me-page", function() {
 
     afterEach(function(done) {
         browser.quit();
-        //done();
+        done();
     });
 
 
