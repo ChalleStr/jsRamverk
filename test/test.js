@@ -19,7 +19,7 @@ function matchUrl(target) {
 }
 
 function assertH3(target) {
-    browser.findElement(By.css("h3")).then(function(element) {
+    browser.findElement(By.css("h1")).then(function(element) {
         element.getText().then(function(text) {
             assert.equal(text, target);
         });
