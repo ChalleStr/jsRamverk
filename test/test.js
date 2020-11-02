@@ -87,6 +87,8 @@ test.describe("Me-page", function() {
         browser.getCurrentUrl().then((url) => {
             assert.ok(url.endsWith("login"));
         });
+
+        done();
     });
 
     test.it("Test register", (done) => {
@@ -103,6 +105,8 @@ test.describe("Me-page", function() {
         browser.getCurrentUrl().then((url) => {
             assert.ok(url.endsWith("register"));
         });
+
+        done();
     });
 
 
