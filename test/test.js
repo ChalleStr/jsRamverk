@@ -18,7 +18,7 @@ function matchUrl(target) {
     });
 }
 
-function assertH3(target) {
+function assertH1(target) {
     browser.findElement(By.css("h1")).then(function(element) {
         element.getText().then(function(text) {
             assert.equal(text, target);
@@ -50,6 +50,7 @@ test.describe("Me-page", function() {
 
     // Test cases
 
+
     test.it("Test index", function(done) {
         let promise = browser.getTitle();
 
@@ -61,23 +62,47 @@ test.describe("Me-page", function() {
             assert.equal(title, "Charlottes me-sida");
         });
 
-        // browser.findElement(By.css("h3"))
-        // .then((element) => {
-        //     element.getText()
-        //     .then((text) => {
-        //         assert.equal(text, "Om mig");
-        //     });
-        // });
-
-        assertH3("Om mig");
+        assertH1("Om mig");
         matchUrl("/");
 
 
-        // browser.getCurrentUrl().then((url) => {
-        //     assert.ok(url.endsWith("reports/show/#!/"));
-        // });
+        browser.getCurrentUrl().then((url) => {
+            assert.ok(url.endsWith(""));
+        });
 
         done();
+    });
+
+    test.it("Test login", (done) => {
+        browser.findElement(By.linkText("Login")).then((element) => {
+            element.click();
+        });
+
+        browser.findElement(By.css("h3")).then((element) => {
+            element.getText().then((text) => {
+                assert.equal(text, "Admin login");
+            });
+        });
+
+        browser.getCurrentUrl().then((url) => {
+            assert.ok(url.endsWith("login"));
+        });
+    });
+
+    test.it("Test register", (done) => {
+        browser.findElement(By.linkText("Register")).then((element) => {
+            element.click();
+        });
+
+        browser.findElement(By.css("h3")).then((element) => {
+            element.getText().then((text) => {
+                assert.equal(text, "Register new user");
+            });
+        });
+
+        browser.getCurrentUrl().then((url) => {
+            assert.ok(url.endsWith("register"));
+        });
     });
 
 
