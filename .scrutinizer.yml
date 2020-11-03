@@ -1,6 +1,9 @@
 build:
-    nodes:
-        analysis:
-            tests:
-                override:
-                    - js-scrutinizer-run
+  nodes:
+    coverage:
+      tests:
+        override:
+          - js-scrutinizer-run
+            coverage:
+              file: coverage/clover.xml
+              format: clover
