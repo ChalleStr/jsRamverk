@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.com/ChalleStr/jsRamverk-frontend.svg?branch=master)](https://travis-ci.com/ChalleStr/jsRamverk-frontend)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ChalleStr/jsRamverk-frontend/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ChalleStr/jsRamverk-frontend/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/ChalleStr/jsRamverk-frontend/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ChalleStr/jsRamverk-frontend/build-status/master)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installation instructions

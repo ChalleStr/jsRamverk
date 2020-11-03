@@ -1,10 +1,5 @@
 import React from 'react';
 import Form from "react-bootstrap/Form"
-//import { BrowserRouter as Link, Route } from 'react-router-dom';
-//import ReactMarkdown from 'react-markdown/with-html';
-//import ReactDOM from 'react-dom';
-//import Dropdown from 'react-bootstrap/Dropdown';
-//import DropdownButton from 'react-bootstrap/DropdownButton';
 import Button from 'react-bootstrap/Button';
 import { token } from "./Token.js";
 
@@ -45,24 +40,21 @@ class UpdateReport extends React.Component {
                 "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify({
-                //this.state
                 week_nr: this.state.week_nr,
                 kmom_text: this.state.kmom_text
             })
-        })
-        .then(response => {
-            return response.json()
-        })
-        .then(res => {
-            if (res.data) {
-                //console.log(res.data.token);
-                console.log("Report updated!");
-            } else {
-                console.log("Funkade ej");
+        }).then(response => {
+            return response.json();
+        }).then(result => {
+            if(result.data) {
+                console.log("Rapporten är uppdaterad!")
+                this.props.history.push("/reports/week/" + this.state.week_nr);
+            } else if (result.error) {
+                console.log(result.error);
             }
-        })
-        .catch((error) => {
-            console.error("Error: ", error);
+        }).catch(error => {
+            window.alert("There is no report with this week number!")
+            console.log("Error:", error.message);
         });
     }
 
@@ -92,29 +84,5 @@ class UpdateReport extends React.Component {
     }
 }
 
-//     render() {
-//         return (
-//                 <main>
-//                     <div className="container">
-//                         <div className="me-div">
-//                             <h3>Update report</h3>
-//                             <form onSubmit={this.handleSubmit}>
-//                                 <label>
-//                                     Choose a week (number):
-//                                     <input type="number" name="week_nr" onChange={this.handleChange} required />
-//                                 </label>
-//                                 <label>
-//                                     Text:
-//                                     <textarea name="kmom_text" onChange={this.handleChange} />
-//                                 </label>
-//                                 <input type="submit" value="Submit" />
-//                             </form>
-//                         </div>
-//                         <Button variant="primary" onClick={this.handleUpdateClick}>Back</Button>
-//                     </div>
-//                 </main>
-//             );
-//     }
-// }
 
 export default UpdateReport;

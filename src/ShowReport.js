@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown/with-html';
 
 const ShowReport = ({ match }) => {
     const kmom = match.params.kmom;
-    //console.log(kmom);
     const [text, setText] = useState("");
 
     useEffect(() => {
@@ -12,9 +11,11 @@ const ShowReport = ({ match }) => {
         //fetch(`http://localhost:1337/reports/week/${kmom}`)
             .then(res => res.json())
             .then(res => {
-                //console.log(res.data.kmom_text);
                 setText(res.data.kmom_text)
-            });
+            }).catch(error => {
+                window.alert("There is no report with this week number!");
+                console.log("No report data:", error.message);
+                });
     });
 
     return (

@@ -55,6 +55,7 @@ class AddReport extends React.Component {
             }
         })
         .catch((error) => {
+            window.alert("This week number already exists! Choose another number.")
             console.error("Error: ", error);
         });
     }
@@ -88,30 +89,6 @@ class AddReport extends React.Component {
             );
     }
 
-    // render() {
-    //     return (
-    //             <main>
-    //                 <div className="container">
-    //                     <div className="me-div">
-    //                         <h2>Welcome!</h2>
-    //                         <Button variant="light" onClick={this.handleUpdateClick}>Update reports</Button>
-    //                         <h4>New report</h4>
-    //                         <form onSubmit={this.handleSubmit}>
-    //                             <label>
-    //                                 Week (number):
-    //                                 <input type="number" name="week_nr" onChange={this.handleChange} required />
-    //                             </label>
-    //                             <label>
-    //                                 Text:
-    //                                 <textarea name="kmom_text" onChange={this.handleChange} />
-    //                             </label>
-    //                             <input type="submit" value="Submit" />
-    //                         </form>
-    //                     </div>
-    //                 </div>
-    //             </main>
-    //         );
-    // }
 }
 
 export default AddReport;

@@ -22,7 +22,6 @@ class Reports extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        //console.log(this.state.kmom)
 
         this.props.history.push('/reports/week/' + this.state.kmom);
     }
